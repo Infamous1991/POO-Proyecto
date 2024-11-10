@@ -8,7 +8,7 @@ Por ejemplo, si elegí una carpeta en mi escritorio llamada `test`, entoces escr
 
 Ahora escriban `git clone https://github.com/Infamous1991/POO-Proyecto.git`
 
-Si la terminal les pide usuario y contraseña, escriban su nombre de usuario y en el apartado de contraseña deben de escribir el [token de acceso](https://github.com/settings/tokens) que hallan generado posteriormente. **NO ES LA CONTRASEÑA DE SU CUENTA**
+Si la terminal les pide usuario y contraseña, escriban su nombre de usuario y en el apartado de contraseña deben de escribir el [token de acceso](https://github.com/settings/tokens) que hallan generado anteriormente. **NO ES LA CONTRASEÑA DE SU CUENTA**
 >Al crear el token, elijan el token clásico
 
 >Marquen el recuadro que dice `repo` mientras estén creando el token
