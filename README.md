@@ -15,6 +15,6 @@ Si la terminal les pide usuario y contraseña, escriban su nombre de usuario y e
 
 >Una vez creado, copien y guarden el token, **no podran volver a verlo otra vez (y si lo olvidan tendrán que crear otro nuevo)**
 
-Hecho esto, deberian de generearse una carpeta en la dirección que escogieron, en el caso del ejemplo anterior se deberia de haber creado la carpeta: `Desktop/test/POO-Proyecto`
+Hecho esto, deberia de generarse una carpeta en la dirección que escogieron, en el caso del ejemplo anterior se deberia de haber creado la carpeta: `Desktop/test/POO-Proyecto`
 
 Ya podrían cerrar la terminal por ahora
