@@ -59,6 +59,7 @@ Con eso deberia de estar hecho y deberias de ser capaz de ver tus archivos en el
 
 ### Trabajar con documentos
 Estas indicaciones son para sincronizar con el repositorio cualquier documento que quieran subir (word, ppt, notas, etc). Las indicaciones son similares a los dos anteriores casos, por lo que lo explicaré más rápido esta vez.
+
 **CREACION DE RAMA PERSONAL**
 ```
 git cd .../.../POO-Proyecto     //Moverse a la carpeta del proyecto
@@ -80,3 +81,5 @@ git pull                      //Sincronizas los datos de la rama de tu pc con la
 git merge <nombre de tu rama> //Unes los datos de tu rama con la de la rama base
 git push                      //Subes los datos al repositorio online
 ```
+
+## Recomendaciones
