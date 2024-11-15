@@ -46,5 +46,6 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 .vscode
+.vim
 
 # End of https://www.toptal.com/developers/gitignore/api/java,maven
