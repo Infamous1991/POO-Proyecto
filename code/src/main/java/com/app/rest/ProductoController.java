@@ -15,7 +15,7 @@ public class ProductoRest {
     
     @GetMapping("/{id}")
     public Producto getMethodName(@PathVariable String id, @RequestParam(value = "1", defaultValue = "0") String tipo) {
-        return ProductoService.find(Integer.parseInt(id), Integer.parseInt(tipo));
+        return ProductoService.get(Integer.parseInt(id), Integer.parseInt(tipo));
     }
     
 }
