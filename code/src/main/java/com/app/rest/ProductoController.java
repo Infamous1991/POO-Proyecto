@@ -11,7 +11,7 @@ import com.app.service.ProductoService;
 import com.app.dto.Producto;
 
 @RestController
-public class ProductoRest {
+public class ProductoController {
     
     @GetMapping("/{id}")
     public Producto getMethodName(@PathVariable String id, @RequestParam(value = "1", defaultValue = "0") String tipo) {
