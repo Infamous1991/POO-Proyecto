@@ -1,35 +1,38 @@
 package com.app.rest;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dto.Usuario;
-import com.app.service.UsuarioService;
+import com.app.dto.Proveedor;
+import com.app.service.ProveedorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
 
+
 @RestController
-@RequestMapping("/empleado")
-public class EmpleadoController {
+@RequestMapping("/proveedore")
+public class ProveedorController {
     
     @Autowired
-    UsuarioService E_srvc;
-    
+    ProveedorService Pv_srvc;
+
     @GetMapping("/{id}")
-    public Usuario buscar(@PathVariable String id) {
-        return E_srvc.buscar(Integer.parseInt(id));
+    public Proveedor buscar(@PathVariable String id) {
+        return Pv_srvc.buscar(Integer.parseInt(id));
     }
 
     @PostMapping("/agregar")
-    public Usuario agregar(@RequestBody Usuario entity) {
-        return E_srvc.agregar(entity);
+    public Proveedor agregar(@RequestBody Proveedor entity) {
+        return Pv_srvc.agregar(entity);
     }
+    
     
     
 }
