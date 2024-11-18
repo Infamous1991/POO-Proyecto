@@ -17,7 +17,7 @@ public class ProveedorService {
         return connection.queryForObject(sql, new Proveedor(), id);
     }
     public Proveedor agregar(Proveedor nuevo){
-        String sql = "INSERT INTO Usuarios VALUE (?, ?, ?, ?)";
+        String sql = "INSERT INTO Proveedores (ID, Nombre, Contacto, Dirección) VALUES (?, ?, ?, ?)";
         connection.update(sql, nuevo.id() ,nuevo.nombre(), nuevo.contacto(), nuevo.direccion());
         return nuevo;
     }

@@ -17,7 +17,7 @@ public class UsuarioService {
         return connection.queryForObject(sql, new Usuario(), id);
     }
     public Usuario agregar(Usuario nuevo){
-        String sql = "INSERT INTO Usuarios VALUE (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuarios (ID, Nombre, Apellido, Email, Rol) VALUES (?, ?, ?, ?, ?)";
         connection.update(sql, nuevo.id() ,nuevo.nombre(), nuevo.apellido(), nuevo.email(), nuevo.rol());
         return nuevo;
     }
