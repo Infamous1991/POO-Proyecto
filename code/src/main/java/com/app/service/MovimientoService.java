@@ -14,7 +14,7 @@ public class MovimientoService {
     JdbcTemplate connection;
     
     public Movimiento buscar(int id){
-        String sql = "SELECT  * FROM Movimientos WHERE ID = id";
+        String sql = "SELECT  * FROM Movimientos WHERE ID = ?";
         return connection.queryForObject(sql, new Movimiento() ,id);
     }
 

@@ -15,7 +15,7 @@ public class PedidoService {
     MovimientoService mov;
 
     public Pedido buscar(int id){
-        String sql = "SELECT  * FROM Pedidos WHERE ID = id";
+        String sql = "SELECT  * FROM Pedidos WHERE ID = ?";
         return connection.queryForObject(sql, new Pedido() ,id);
     }
     public Pedido agregar(Pedido nuevo){

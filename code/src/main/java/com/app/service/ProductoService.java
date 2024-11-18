@@ -13,7 +13,7 @@ public class ProductoService {
     JdbcTemplate connection;
 
     public Producto buscar(int id){
-        String sql = "SELECT  * FROM Productos WHERE ID = id";
+        String sql = "SELECT  * FROM Productos WHERE ID = ?";
         return connection.queryForObject(sql, new Producto() ,id);
     }
     public Producto agregar(Producto nuevo){
