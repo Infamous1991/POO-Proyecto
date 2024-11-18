@@ -1,5 +1,7 @@
 package com.app.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.app.dto.Producto;
@@ -7,14 +9,17 @@ import com.app.dto.Producto;
 @Service
 public class ProductoService {
 
-    //Este es solo una prueba, cambiar despues
-    private static Producto[] test = {new Producto(1, 10.4), new Producto(2, 11.4), new Producto(3, 4.99)};
+    @Autowired
+    JdbcTemplate connection;
 
-    public static Producto get(int id, int tp){
-        for (Producto i : test){
-            if (i.id() == id) { return i;}
-        }
-        throw new IllegalArgumentException("Id no encontrado");
+    public Producto buscar(int id){
+        String sql = "SELECT  * FROM Productos WHERE ID = id";
+        return connection.queryForObject(sql, new Producto() ,id);
     }
-    //Fin de la prueba
+    public Producto agregar(Producto nuevo){
+        String sql = "INSERT INTO Productos VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        connection.update(sql, nuevo.id(), nuevo.codigo(), nuevo.nombre(), nuevo.descrip(), nuevo.precio(), 
+                               nuevo.stock(), nuevo.stockMin(), nuevo.categoria(), nuevo.proveedor() );
+        return nuevo;
+    }
 }

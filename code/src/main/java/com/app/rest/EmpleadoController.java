@@ -2,25 +2,34 @@ package com.app.rest;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dto.Empleado;
-import com.app.service.EmpleadoService;
+import com.app.dto.Usuario;
+import com.app.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
-@RequestMapping("/emp")
+@RequestMapping("/empleado")
 public class EmpleadoController {
     
     @Autowired
-    EmpleadoService EService;
+    UsuarioService E_srvc;
     
     @GetMapping("/{id}")
-    public Empleado searchById(@PathVariable String id) {
-        return EService.get(Integer.parseInt(id));
+    public Usuario buscarPorId(@PathVariable String id) {
+        return E_srvc.buscar(Integer.parseInt(id));
     }
+
+    @PostMapping("/agregar")
+    public Usuario add(@RequestBody Usuario entity) {
+        return E_srvc.agregar(entity);
+    }
+    
     
 }
