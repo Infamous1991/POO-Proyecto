@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns="https://www.thymeleaf.org">
+    <head>
+        <!-- <base href="../static/"> -->
+        <link rel="stylesheet" href="css/usuario.css">
+        <script src="js/usuario.js"></script>
+    </head>
+    <body>
+        <div>
+            <button id="test" onclick="cambiar()">cambiar</button>
+        </div>
+        <div id= "cuerpo">
+            <div id="buscar">
+
+                <form action="usuario/buscar" target="b_result" method="get">
+                    <label for="input_buscar">Escriba el código del pedido</label><br>
+                    <input type="text" name="input_buscar" id="input_buscar">
+                    <input type="submit" id="input_submit" value="Buscar">
+                </form>
+
+                <iframe id="b_result" frameborder="0" name="b_result"></iframe>
+            </div>
+            <div id="line"></div>
+            <div id="agregar">
+                <form action="usuario/agregar" target="_blank" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="half" name="nombre" style="left:5em">
+                    <label for="apellido" style="left: calc(5em + 20% + 1em)">Apellido:</label>
+                    <input type="text" class="half" style="left: calc(5em + 20% + 1em + 7em)" name="apellido">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

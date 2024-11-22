@@ -15,13 +15,14 @@ public class PedidoService {
     MovimientoService mov;
 
     public Pedido buscar(int id){
-        String sql = "SELECT  * FROM Pedidos WHERE ID = ?";
-        return connection.queryForObject(sql, new Pedido() ,id);
+        // String sql = "SELECT  * FROM Pedidos WHERE ID = ?";
+        // return connection.queryForObject(sql, new Pedido() ,id);
+        return new Pedido();
     }
     public Pedido agregar(Pedido nuevo){
         String sql = "INSERT INTO Pedidos (ID, ProductoID, UsuarioID, Tipo, Cantidad, FechaPedido) VALUES (?, ?, ?, ?, ?, ?)";
         connection.update(sql, nuevo.id(), nuevo.idProducto(), nuevo.idCliente(), nuevo.tipo(), nuevo.cantidad(), nuevo.fecha());
-        mov.agregar(nuevo);
+
         return nuevo;
     }
 }

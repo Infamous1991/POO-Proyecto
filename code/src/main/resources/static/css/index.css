@@ -1,0 +1,48 @@
+
+:root{
+    --sep : 13%;
+    --uColor : #59ca59;
+    --eColor : #2acfc7;
+}
+* {
+    margin: 0;
+    padding: 0;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.tarjeta{
+
+    width: 30%;
+    height: 30%;
+    max-height: 400px;
+    top: calc(35% - 1px);
+    cursor: pointer;
+    background-color: #463f3f;
+    
+    
+    &#usuario{
+        border: 2px solid var(--uColor);
+        left: var(--sep);
+        color: var(--uColor);
+    }
+    &#trabajador{
+        border: 2px solid var(--eColor);
+        right: var(--sep);
+        color: var(--eColor);
+    }
+
+    img {
+        width: 40%;
+        height: 40%;
+        right: 30%;
+        top : 10%;
+    }
+    div {
+        width: 100%;
+        text-align: center;
+        top: 65%;
+    }
+}
