@@ -1,20 +1,20 @@
+<!DOCTYPE HTML>
 
-<!DOCTYPE html>
+<html>
     <head>
-        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/index.css?v=1.x">
+        <script src="js/index.js"></script>
     </head>
     <body>
-
-        <div id="body">
-            <div id="usuario" class="tarjeta" onclick="location.href= location + 'usuario'">
-                <img src="img/people.svg" alt="">
-                <div class = "texto_tarjeta">Usuario</div>
+        <div id="main">
+            <div class="usuario">
+                <div class="acceso" onclick="setInit(true)"></div>
+                <div class="body"></div>
             </div>
-            <div id="trabajador" class="tarjeta">
-                <img src="img/tools.svg" alt="">
-                <div class = "texto_tarjeta">Empleado</div>
+            <div class="empleado">
+                <div class="acceso" onclick="setInit(false)"></div>
+                <div class="body"></div>
             </div>
         </div>
-        
     </body>
 </html>

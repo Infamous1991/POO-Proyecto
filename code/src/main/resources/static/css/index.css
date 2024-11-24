@@ -1,50 +1,129 @@
 
-:root{
-    --sep : 13%;
-    --uColor : #59ca59;
-    --eColor : #2acfc7;
-    --elementColor : #fff;
-}
-* {
+html, body{
     margin: 0;
     padding: 0;
-    position:absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
 }
 
-.tarjeta{
+@keyframes block_click{
+    0%{ pointer-events: none; cursor: none;}
+    50%{ pointer-events: none; cursor: none;}
+    100%{pointer-events:all; cursor: pointer;}
+}
 
-    width: 30%;
-    height: 30%;
-    max-height: 400px;
-    top: calc(35% - 1px);
-    cursor: pointer;
-    
-    img {
-        width: 40%;
-        height: 40%;
-        right: 30%;
-        top : 10%;
+#main{
+    width: 50vw;
+    height: 70vh;
+    border-radius: 0 0 10vh 10vh;
+    z-index: 0;
+    position: absolute;
+    top: 15vh;
+    right: 25vw;
+    box-shadow: 2px 10px #ececec;
+    overflow: hidden;
+
+    *{
+        position: absolute;
     }
-    div.texto_tarjeta {
+    div{
         width: 100%;
-        text-align: center;
-        top: 65%;
-        font-variant: small-caps;
-        font-weight: bold;
+        height: 100%;
+    }
+    div>.acceso{
+        width: 50%;
+        height: 5%;
+        border-radius: 20px 20px 0 0;
+        cursor: pointer;
+    }
+    div>.body{
+        width: 100%;
+        height: 95%;
+        top: 5%
+    }
+
+    .usuario{
+        *{
+            background-color: #93d37f;
+        }
+        .acceso{
+            left: 0%;
+        }
+    }
+    .empleado{
+        *{
+            background-color: #0e0c25;
+        }
+        .acceso{
+            right: 0%;
+        }
     }
 }
-.tarjeta#usuario{
-    border: 2px solid var(--uColor);
-    left: var(--sep);
-    color: var(--elementColor);
-    background-color: var(--uColor);
+#main.Init{
+    .usuario{
+        animation: block_click 1s linear;
+        z-index: 1;
+        transition: clip-path .5s .5s;
+        clip-path: polygon(
+            0% 5%,
+            0% 0%,
+            50% 0%,
+            50% 5%,
+            0% 5%,
+            0% 5%, /*Inicio del cuerpo*/
+            0% 5%,
+            100% 5%,
+            100% 5%,
+            0% 5%
+        );
+    }
+    .empleado{
+        transition: clip-path .5s;
+        z-index: 2;
+        clip-path: polygon(
+            100% 5%,
+            100% 0%,
+            50% 0%,
+            50% 5%,
+            100% 5%,
+            100% 5%, /*Inicio del cuerpo*/
+            100% 100%,
+            0% 100%,
+            0% 5%,
+            100% 5%
+        );
+    }
 }
-.tarjeta#trabajador{
-    border: 2px solid var(--eColor);
-    right: var(--sep);
-    color: var(--elementColor);
-    background-color: var(--eColor);
+#main:not(.Init){
+    .usuario{
+        z-index: 2;
+        transition: clip-path .5s;
+        clip-path: polygon(
+            0% 5%,
+            0% 0%,
+            50% 0%,
+            50% 5%,
+            0% 5%,
+            0% 5%, /*Inicio del cuerpo*/
+            0% 100%,
+            100% 100%,
+            100% 5%,
+            0% 5%
+        );
+    }
+    .empleado{
+        animation: block_click 1s linear;
+        z-index: 1;
+        transition: clip-path .5s .5s;
+        clip-path: polygon(
+            100% 5%,
+            100% 0%,
+            50% 0%,
+            50% 5%,
+            100% 5%,
+            100% 5%, /*Inicio del cuerpo*/
+            100% 5%,
+            0% 5%,
+            0% 5%,
+            100% 5%
+        );
+    }
 }
