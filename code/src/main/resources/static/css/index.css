@@ -3,6 +3,7 @@
     --sep : 13%;
     --uColor : #59ca59;
     --eColor : #2acfc7;
+    --elementColor : #fff;
 }
 * {
     margin: 0;
@@ -20,29 +21,30 @@
     max-height: 400px;
     top: calc(35% - 1px);
     cursor: pointer;
-    background-color: #463f3f;
     
-    
-    &#usuario{
-        border: 2px solid var(--uColor);
-        left: var(--sep);
-        color: var(--uColor);
-    }
-    &#trabajador{
-        border: 2px solid var(--eColor);
-        right: var(--sep);
-        color: var(--eColor);
-    }
-
     img {
         width: 40%;
         height: 40%;
         right: 30%;
         top : 10%;
     }
-    div {
+    div.texto_tarjeta {
         width: 100%;
         text-align: center;
         top: 65%;
+        font-variant: small-caps;
+        font-weight: bold;
     }
+}
+.tarjeta#usuario{
+    border: 2px solid var(--uColor);
+    left: var(--sep);
+    color: var(--elementColor);
+    background-color: var(--uColor);
+}
+.tarjeta#trabajador{
+    border: 2px solid var(--eColor);
+    right: var(--sep);
+    color: var(--elementColor);
+    background-color: var(--eColor);
 }

@@ -23,8 +23,8 @@ public class UsuarioController {
     }
 
     @GetMapping("/buscar")
-    public String getMethodName(@RequestParam String input_buscar, Model model) {
-        model.addAttribute("search", M_srvc.buscar(Integer.parseInt(input_buscar)));
+    public String getMethodName(@RequestParam String buscar, Model model) {
+        model.addAttribute("search", M_srvc.buscar(Integer.parseInt(buscar)));
         return "buscar";
     }    
 }

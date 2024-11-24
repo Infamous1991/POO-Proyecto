@@ -1,27 +1,31 @@
 <!DOCTYPE HTML>
 <html xmlns="https://www.thymeleaf.org">
     <head>
-        <!-- <base href="../static/"> -->
-        <link rel="stylesheet" href="css/usuario.css">
+        <base href="../static/">
+        <link rel="stylesheet" href="css/usuario.css?v=1.x">
         <script src="js/usuario.js"></script>
     </head>
     <body>
-        <div>
-            <button id="test" onclick="cambiar()">cambiar</button>
-        </div>
         <div id= "cuerpo">
             <div id="buscar">
-
+                <div class="button" onclick="toggleScreen()"><div>AGREGAR</div></div>
                 <form action="usuario/buscar" target="b_result" method="get">
-                    <label for="input_buscar">Escriba el código del pedido</label><br>
-                    <input type="text" name="input_buscar" id="input_buscar">
-                    <input type="submit" id="input_submit" value="Buscar">
+                    <div class= "img">
+                        <img src="img/search.svg" alt="">
+                    </div>
+                    <div class="input">
+                        <input type="text" name="buscar" placeholder="Ingrese el código del pedido">
+                    </div>
+                    <div class="preguntar">
+                        <button>BUSCAR</button>
+                    </div>
                 </form>
 
-                <iframe id="b_result" frameborder="0" name="b_result"></iframe>
+                <iframe frameborder="0" name="b_result"></iframe>
             </div>
             <div id="line"></div>
             <div id="agregar">
+                <div class="button" onclick="toggleScreen()"><div>BUSCAR</div></div>
                 <form action="usuario/agregar" target="_blank" method="post">
                     <label for="nombre">Nombre:</label>
                     <input type="text" class="half" name="nombre" style="left:5em">
