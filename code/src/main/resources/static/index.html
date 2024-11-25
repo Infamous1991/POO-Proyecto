@@ -3,17 +3,42 @@
 <html>
     <head>
         <link rel="stylesheet" href="css/index.css?v=1.x">
-        <script src="js/index.js"></script>
+        <script src="js/index.js?v=1.x"></script>
     </head>
     <body>
-        <div id="main">
-            <div class="usuario">
-                <div class="acceso" onclick="setInit(true)"></div>
-                <div class="body"></div>
+        <div id="main" class="">
+            <div id="usuario">
+                <div class="acceso" onclick="setInit(true)">
+                    <img src="img/people.svg" alt="">
+                </div>
+                <div class="body">
+                    <div class="mImage">
+                        <img src="img/user_b.svg" alt="">
+                    </div>
+                    <div class="tittle">CLIENTE</div>
+                    <button id="toUser">INGRESAR</button>
+                </div>
             </div>
-            <div class="empleado">
-                <div class="acceso" onclick="setInit(false)"></div>
-                <div class="body"></div>
+            <div id="empleado" class="showLogin">
+                <div class="acceso" onclick="setInit(false)">
+                    <img src="img/tools.svg" alt="">
+                </div>
+                <div class="body">
+                    <div class="mImage">
+                        <img src="img/worker_b.svg" alt="">
+                    </div>
+                    <div class="tittle">EMPLEADO</div>
+                    <button id="toWork" onclick="toggleLogin()">INGRESAR</button>
+                    
+                </div>
+                <div class="login">
+                    <form action="">
+                        <p>Nombre</p>
+                        <input type="text" name="user">
+                        <p>Contraseña</p>
+                        <input type="password" name="psw" id="">
+                    </form>
+                </div>
             </div>
         </div>
     </body>
