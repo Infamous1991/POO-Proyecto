@@ -150,15 +150,47 @@ html, body{
             form{
                 width: 100%;
                 height: 100%;
-                input:not(submit){
+                p{
+                    color: #f1f1f1;
+                    left: 10%;
+
+                }
+                p#userName{
+                    top: calc(50% - 2.5em);
+                }
+                p#pswName{
+                    top: calc(70% - 2.5em);
+                }
+                input[type="text"],input[type="password"]{
                     width: 80%;
+                    right: 10%;
                     height: 1.5em;
                     padding-top: .25em;
+                    border-radius: 7px 7px 7px 7px;
+                    border: 0px;
+                    background-color: #f1f1f1;
+                    color: #333a4d;
+                    transition: .7s;
                 }
-                input[name="psw"]{
+                input[type="text"]:focus,input[type="password"]:focus{
+                    background-color: #d4d4d4;
+                    border: 0px;
+                    outline: none;
+                    caret-color: transparent;
+                }
+                input[name="userName"]{
                     top: 50%;
-                    cursor: text;
                 }
+                input[name="password"]{
+                    top: 70%;
+                }
+                input[name="subm"]{
+                    width: 30%;
+                    right: 10%;
+                    top: 85%;
+                    padding-bottom: 1.5em;
+                }
+
             }
         }
     }
@@ -167,7 +199,7 @@ html, body{
             width: 40%;
             background-color: #333a4dcc;
             .mImage{
-                top: 10%
+                top: 20%
             }
             .tittle{
                 font-size: 60%;
@@ -177,13 +209,14 @@ html, body{
             button{
                 top: 65%;
                 font-size: 70%;
+                opacity: 0;
             }
         }
         .login{
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
         }
     }
-    @media (width <= 600px) {
+    @media (width <= 700px) {
         #empleado.showLogin{
             .login{
                 width: 100%;

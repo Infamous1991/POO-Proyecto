@@ -8,7 +8,7 @@
     <body>
         <div id= "cuerpo">
             <div id="buscar">
-                <div class="button" onclick="toggleScreen()"><div>AGREGAR</div></div>
+                <div class="button" onclick="toggleScreen()"><div th:text="{trabajador.userName}"></div></div>
                 <form action="usuario/buscar" target="b_result" method="get">
                     <div class= "img">
                         <img src="img/search.svg" alt="">

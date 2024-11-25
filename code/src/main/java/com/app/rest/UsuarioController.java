@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.app.dto.Trabajador;
 import com.app.service.MovimientoService;
 
 
@@ -17,8 +20,14 @@ public class UsuarioController {
     @Autowired
     MovimientoService M_srvc;
 
+    @PostMapping
+    public String usuario(@ModelAttribute Trabajador trabajador,Model model) {
+        model.addAttribute("trabajador",trabajador);
+        return "usuario";
+    }
     @GetMapping
-    public String usuario(Model model) {
+    public String usuarioe(@ModelAttribute Trabajador trabajador,Model model) {
+        model.addAttribute("trabajador",trabajador);
         return "usuario";
     }
 
