@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns="https://www.thymeleaf.org">
     <head>
-        <!-- <base href="../static/"> -->
+        <base href="../static/">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <link rel="stylesheet" href="css/usuario.css?v=1.x">
         <link rel="stylesheet" href="css/buscarPedido.css?v=1.x">
         <link rel="stylesheet" href="css/agregarPedido.css?v=1.x">
@@ -31,17 +32,16 @@
                 <form action="#" th:action="@{usuario/pedido}" th:object="${usuario}" method="post">
                     
                     <input type="hidden" name="id" th:field="${usuario.id}" value="12"><br>
-                    <div>nombre</div>
+                    <p>Nombre</p>
                     <input type="text" name="nombre" th:filed="${usuario.nombre}" value="GOL"><br>
-                    <div>email</div><br>
+                    <p>Email</p>
                     <input type="text" name="email" th:filed="${usuario.email}"><br>
-                    <div>telefono</div><br>
+                    <p>Teléfono</p>
                     <input type="text" name="telefono" th:filed="${usuario.telefono}"><br>
-                    <div>direccion</div><br>
+                    <p>Dirección</p>
                     <input type="text" name="direccion" th:filed="${usuario.direccion}"><br>
                     
-                    <div id="pedidosContenedor" >
-                        
+                    <div id="movimientosContenedor" >
                     </div>
 
                     <button type="button" onclick="agregarFila()">Agregar Pedido</button>

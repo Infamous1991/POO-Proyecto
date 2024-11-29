@@ -1,11 +1,14 @@
 #agregar{
     background-color: #fff;
+    border: 1px solid;
+
     clip-path: polygon(
         100% 0%, 
         100% 0%, 
         100% 100%, 
         100% 100% 
     );
+
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     
     .button{
@@ -47,11 +50,37 @@
     }
     
     form{
-        top: calc(10px + 4em);
-        input{
-            height: 1em;
-            width: 80%;
-            &.half{ width: 20%;}
+        top: calc(10px);
+
+        input[type=text]{
+            height: 2em;
+            width: 30%;
+            border-radius: .5em .5em .5em .5em;
+            border: 0px;
+        }
+
+        input[name=nombre]{
+            background-color: #eb701e;
+        }
+        input[name=email]{
+            background-color: #eb701e;
+        }
+        input[name=telefono]{
+            background-color: #eb701e;
+        }
+        input[name=direccion]{
+            background-color: #eb701e;
+        }
+        #movientosContenedor{
+
+        }
+        button[type=button]{
+            width: 10%;
+            height: 10%;
+        }
+        input[type=submit]{
+            width: 10%;
+            height: 10%;
         }
     }
 }

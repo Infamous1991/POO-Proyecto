@@ -7,7 +7,7 @@ function toggleScreen(){
 }
 
 function agregarFila() {
-    const contenedor = document.getElementById("pedidosContenedor");
+    const contenedor = document.getElementById("movimientosContenedor");
     const index = contenedor.children.length;
 
     // Crear un nuevo div para la fila
@@ -18,9 +18,7 @@ function agregarFila() {
         <input type="hidden" name="lista[${index}].id" value="1">
         <input type="hidden" name="lista[${index}].pedidoId" value="1">
         <input type="number" name="lista[${index}].productoId" value="2" required />
-        <label>Cantidad:</label>
         <input type="number" name="lista[${index}].cantidad" value="3" required />
-        <label>Monto:</label>
         <input type="number" name="lista[${index}].monto" value="4" required />
         <button type="button" onclick="eliminarFila(this)">Eliminar</button>
     `;
