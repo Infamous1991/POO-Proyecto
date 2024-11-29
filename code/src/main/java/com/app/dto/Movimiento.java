@@ -1,29 +1,30 @@
 package com.app.dto;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+public class Movimiento{
+    private int id;
+    private int pedidoId;
+    private int productoId;
+    private int cantidad;
+    private int monto;
 
-import org.springframework.jdbc.core.RowMapper;
-
-/*
- * SE DEBE MODIFICAR EL NOMBRE LA COLUMNA 'FechaMovimiento' A 'FechaFinal'
- * Y AGREGAR LA COLUMNA 'Estado'
- */
-public record Movimiento(int id, int productoId, String tMove, int cantidad, String fFecha, int usuarioId, String estado) implements RowMapper<Movimiento>{
-    public Movimiento(){
-        this(0, 0, null, 0, null, 0, null);
-    }
-    @Override
-    public Movimiento mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return new Movimiento(
-            rs.getInt(1),
-            rs.getInt(2),
-            rs.getString(3),
-            rs.getInt(4),
-            rs.getString(5),
-            rs.getInt(6),
-            rs.getString(7)
-        );
+    public Movimiento(){}
+    public Movimiento(int id, int pedidoId, int productoId, int cantidad, int monto){
+        this.id= id;
+        this.pedidoId= pedidoId;
+        this.productoId= productoId;
+        this.cantidad= cantidad;
+        this.monto= monto;
     }
 
+    public int getId(){ return this.id; }
+    public int getPedidoId(){ return this.pedidoId; }
+    public int getProductoId(){ return this.productoId; }
+    public int getCantidad(){ return this.cantidad; }
+    public int getMonto(){ return this.monto; }
+
+    public void setId( int nw ){ this.id= nw; }
+    public void setPedidoId( int nw ){ this.pedidoId= nw; }
+    public void setProductoId( int nw ){ this.productoId= nw; }
+    public void setCantidad( int nw ){ this.cantidad= nw; }
+    public void setMonto( int nw ){ this.monto= nw; }
 }

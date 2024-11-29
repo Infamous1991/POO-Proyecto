@@ -6,7 +6,7 @@
         <script src="js/index.js?v=1.x"></script>
     </head>
     <body>
-        <div id="main" class="" th:classappend="${logError}? notInit : Init">
+        <div id="main" class="Init">
             <div id="usuario">
                 <div class="acceso" onclick="setInit(true)">
                     <img src="img/people.svg" alt="">
@@ -16,10 +16,10 @@
                         <img src="img/user_b.svg" alt="">
                     </div>
                     <div class="tittle">CLIENTE</div>
-                    <button id="toUser">INGRESAR</button>
+                    <button id="toUser" onclick="location=location + 'usuario'">INGRESAR</button>
                 </div>
             </div>
-            <div id="empleado" class="" th:classappend="${logError}? showLog :">
+            <div id="empleado" class="showLogin">
                 <div class="acceso" onclick="setInit(false)">
                     <img src="img/tools.svg" alt="">
                 </div>
@@ -32,12 +32,12 @@
                     
                 </div>
                 <div class="login">
-                    <form action="#" th:action="@{usuario}" th:object="${userLog}" method="post">
+                    <form action="" method="get">
                         <p id="userName">Usuario</p>
                         <input type="text" name="userName">
                         <p id="pswName">Contraseña</p> 
                         <input type="password" name="password">
-                        <input type="submit" name="subm">
+                        <input type="submit" value="Ingresar">
                     </form>
                 </div>
             </div>

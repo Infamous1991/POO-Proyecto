@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Dinámico</title>
+    <script>
+        function agregarFila() {
+            const contenedor = document.getElementById("contenedor-movimientos");
+            const index = contenedor.children.length;
+
+            // Crear un nuevo div para la fila
+            const fila = document.createElement("div");
+            fila.setAttribute("class", "movimiento");
+            fila.innerHTML = `
+                <p>Pedido #${index + 1}</p>
+                <label>Cantidad:</label>
+                <input type="number" name="movimientos[${index}].cantidad" required />
+                <label>Monto:</label>
+                <input type="number" name="movimientos[${index}].monto" required />
+                <button type="button" onclick="eliminarFila(this)">Eliminar</button>
+            `;
+            contenedor.appendChild(fila);
+        }
+
+        function eliminarFila(boton) {
+            const fila = boton.parentElement;
+            fila.remove();
+            actualizarNumeracion();
+        }
+
+        function actualizarNumeracion() {
+            const filas = document.querySelectorAll(".movimiento");
+            filas.forEach((fila, index) => {
+                const pedidoLabel = fila.querySelector("p");
+                pedidoLabel.textContent = `Pedido #${index + 1}`;
+
+                const inputs = fila.querySelectorAll("input");
+                inputs[0].setAttribute("name", `movimientos[${index}].cantidad`);
+                inputs[1].setAttribute("name", `movimientos[${index}].monto`);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div th:text="${usuario}"></div><br>
+    <div th:text="${mov}"></div>
+    <h1>Realizar Pedidos</h1>
+    <form th:action="@{/enviar}" method="post">
+        <div id="contenedor-movimientos">
+            <!-- Contenedor para los movimientos -->
+        </div>
+        <button type="button" onclick="agregarFila()">Agregar Pedido</button>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

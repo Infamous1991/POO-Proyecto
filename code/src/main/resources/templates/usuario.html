@@ -3,12 +3,14 @@
     <head>
         <!-- <base href="../static/"> -->
         <link rel="stylesheet" href="css/usuario.css?v=1.x">
+        <link rel="stylesheet" href="css/buscarPedido.css?v=1.x">
+        <link rel="stylesheet" href="css/agregarPedido.css?v=1.x">
         <script src="js/usuario.js"></script>
     </head>
     <body>
         <div id= "cuerpo">
             <div id="buscar">
-                <div class="button" onclick="toggleScreen()"><div th:text="{trabajador.userName}"></div></div>
+                <div class="button" onclick="toggleScreen()"><div>Agregar</div></div>
                 <form action="usuario/buscar" target="b_result" method="get">
                     <div class= "img">
                         <img src="img/search.svg" alt="">
@@ -21,16 +23,31 @@
                     </div>
                 </form>
 
-                <iframe src="#" name="b_result"></iframe>
+                <iframe src="" th:filed="b_result"></iframe>
             </div>
             <div id="line"></div>
-            <div id="agregar">
+            <div id="agregar" class="show"> <!--RECUERDA ELIMINAR LA CLASE SHOW AL FINAL-->
                 <div class="button" onclick="toggleScreen()"><div>BUSCAR</div></div>
-                <form action="usuario/agregar" target="_blank" method="post">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" class="half" name="nombre" style="left:5em">
-                    <label for="apellido" style="left: calc(5em + 20% + 1em)">Apellido:</label>
-                    <input type="text" class="half" style="left: calc(5em + 20% + 1em + 7em)" name="apellido">
+                <form action="#" th:action="@{usuario/pedido}" th:object="${usuario}" method="post">
+                    
+                    <input type="hidden" name="id" th:field="${usuario.id}" value="12"><br>
+                    <div>nombre</div>
+                    <input type="text" name="nombre" th:filed="${usuario.nombre}" value="GOL"><br>
+                    <div>email</div><br>
+                    <input type="text" name="email" th:filed="${usuario.email}"><br>
+                    <div>telefono</div><br>
+                    <input type="text" name="telefono" th:filed="${usuario.telefono}"><br>
+                    <div>direccion</div><br>
+                    <input type="text" name="direccion" th:filed="${usuario.direccion}"><br>
+                    
+                    <div id="pedidosContenedor" >
+                        
+                    </div>
+
+                    <button type="button" onclick="agregarFila()">Agregar Pedido</button>
+                    <input type="submit" value="si"><br>
+                </form>
+                    
                 </form>
             </div>
         </div>

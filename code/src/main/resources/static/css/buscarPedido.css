@@ -1,0 +1,97 @@
+#buscar{
+
+    background-color: #fff;
+
+    .button{
+        top: 10px;
+        left: 10px;
+        background-color: #4cac4c;
+        height: 1.4em;
+        width:11em;
+        transition: background-color .5s;
+        clip-path: polygon(
+            0% 0%,
+            45% 0%,
+            51% 50%,
+            57% 50%,
+            51% 0%,
+            61% 0%,
+            67% 50%,
+            61% 100%,
+            51% 100%,
+            57% 50%,
+            51% 50%,
+            45% 100%,
+            0% 100%,
+            6% 50%
+        );
+        cursor: pointer;
+        user-select: none;
+        div{
+            font-size: .7em;
+            width: fit-content;
+            height: fit-content;
+            top: .35em;
+            left: 1.5em;
+            color: #fff;
+        }
+    }
+    .button:hover{
+        background-color: #398539;
+    }
+
+    form{
+        position: relative;
+        top: calc(10px + 4em);
+        left: 5%;
+        display: flex;
+        width: 90%;
+        height: fit-content;
+        border-radius: .9em;
+        box-shadow: 1px 4px 5px #bbbebb;
+        *{
+            position: relative;
+            height: 2.5em;
+            display: flex;
+            align-items: center;
+            border: 0;
+            background: 0;
+            overflow: hidden;
+            font-size: 1.4vw;
+        }
+        .img{
+            width: 5em;
+            border-radius: .9em 0 0 .9em;
+            background-color: #ecf5ec;
+            img{
+                height: 1.5em;
+            }
+        }
+        .input{
+            background-color: #ecf5ec;
+        }
+        .preguntar{
+            width: 20em;
+            background-color: #4cac4c;
+            border-radius: 0 .9em .9em 0;
+            transition: background-color .5s;
+            button {
+                justify-content: center;
+                width: calc(100% - 5px);
+                height: 100%;
+                color: #fff;
+                
+            }
+        }
+        .preguntar:hover {
+            background-color: #398539;
+        };
+    }
+
+    iframe{
+        width: 80%;
+        height: 70%;
+        right: 10%;
+        top: 27%;
+    }
+}

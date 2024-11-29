@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.app.dto.Movimiento;
+import com.app.dto.Producto;
 
 @Service
-public class MovimientoService {
-
+public class ProductoService {
+    
     @Autowired
     JdbcTemplate connection;
-    
-    public List<Movimiento> getAll(int id){
-        String sql = "SELECT  * FROM Movimientos WHERE PedidoId = ?";
-        return connection.query(sql, RowMapperService.rmMovimiento(), id);
+
+    public List<Producto> getAll(){
+        String sql= "SELECT * FROM Productos";
+        return connection.query(sql, RowMapperService.rmProducto());
     }
 }

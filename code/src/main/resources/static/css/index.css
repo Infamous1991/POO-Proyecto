@@ -184,11 +184,16 @@ html, body{
                 input[name="password"]{
                     top: 70%;
                 }
-                input[name="subm"]{
+                input[type="submit"]{
                     width: 30%;
                     right: 10%;
                     top: 85%;
-                    padding-bottom: 1.5em;
+                    height: 2.5em;
+                    border-radius: 10px;
+                    border: 0;
+                    color: #333a4d;
+                    font-weight: bold;
+
                 }
 
             }
