@@ -14,8 +14,12 @@ public class MovimientoService {
     @Autowired
     JdbcTemplate connection;
     
-    public List<Movimiento> getAll(int id){
-        String sql = "SELECT  * FROM Movimientos WHERE PedidoId = ?";
+    public List<Movimiento> getAll(){
+        String sql = "SELECT  * FROM Movimientos";
+        return connection.query(sql, RowMapperService.rmMovimiento());
+    }
+    public List<Movimiento> get(int id){
+        String sql= "SELECT * FROM Movimientos WHERE PedidoId = ?";
         return connection.query(sql, RowMapperService.rmMovimiento(), id);
     }
 }
