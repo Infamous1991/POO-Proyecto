@@ -22,4 +22,11 @@ public class MovimientoService {
         String sql= "SELECT * FROM Movimientos WHERE PedidoId = ?";
         return connection.query(sql, RowMapperService.rmMovimiento(), id);
     }
+    public void nuevaOrden(List<Movimiento> nuevo, int pedidoId){
+        String sql= "INSERT INTO Movimientos(PedidoId, ProductoId, Cantidad, Monto) VALUES (?, ? , ? , ?)";
+        for (Movimiento m: nuevo){
+            System.out.println("%d : %d : %d : %d".formatted(pedidoId, m.getProductoId(), m.getCantidad(), m.getMonto()));
+            connection.update(sql, pedidoId, m.getProductoId(), m.getCantidad(), m.getMonto());
+        }
+    }
 }

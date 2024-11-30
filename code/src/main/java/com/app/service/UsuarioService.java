@@ -23,4 +23,21 @@ public class UsuarioService {
         String sql= "SELECT * FROM Usuarios WHERE ID= ?";
         return connection.queryForObject(sql,RowMapperService.rmUsuario(), id);
     }
+
+    public int nuevaOrden(Usuario evaluar){
+        int answ;
+        final String existe= "SELECT ID FROM Usuarios WHERE Nombre = ?";
+        final String nuevo= """
+                INSERT INTO Usuarios(Nombre, Email, NumeroTelefono, Direccion) 
+                            VALUES (?, ?, ?, ?)
+                SELECT SCOPE_IDENTITY()
+                """;
+        int test= connection.queryForObject("SELECT COUNT(*) FROM Usuarios WHERE Nombre = ?", int.class, evaluar.nombre());
+        if (test == 0){
+            answ= connection.queryForObject(nuevo, int.class, evaluar.nombre(), evaluar.email(), evaluar.telefono(), evaluar.direccion());
+        } else{
+            answ= connection.queryForObject(existe, int.class, evaluar.nombre());
+        }
+        return answ;
+    }
 }

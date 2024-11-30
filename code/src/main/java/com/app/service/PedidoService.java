@@ -23,4 +23,13 @@ public class PedidoService {
         String sql="SELECT * FROM Pedidos WHERE ID = ?";
         return connection.queryForObject(sql, RowMapperService.rmPedido(), id);
     }
+
+    public int nuevaOrden(int usuarioId){
+        String sql= """
+                INSERT INTO Pedidos (UsuarioID, Estado, FechaInicio, FechaFinal)
+                VALUES(?, 'en proceso', GETDATE(), null)
+                SELECT SCOPE_IDENTITY()
+                """;
+        return connection.queryForObject(sql, int.class, usuarioId);
+    }
 }
