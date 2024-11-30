@@ -1,43 +1,23 @@
 
-:root{
-    --left_init_form : 10%;
-    --main_step : 45%;
-    --second_step : 6%
-}
-
-html,body{
+html, body{
     margin: 0;
     padding: 0;
+}
+
+.screen{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
-}
 
-#cuerpo{
-    margin: 0;
-    padding: 0;
-    position:absolute;
-    width: 94%;
-    height: 90%;
-    z-index: 1;
-    top: 5%;
-    right: 3%;
-
-    *{
-        position: absolute;
-        width: 100%;
+    .target{
+        position: relative;
+        width: 750px;
         height: 100%;
-        font-size: 1.4vw;
-    }
-
-    #line{
-        width: 3px;
-        z-index: 100;
-        right: calc(0%);
-        background-color: #59ca59;
-        border-radius: 5px;
-        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
-    #line.show{
-        right: calc(100% );
-        background-color: #cc6119;
+        left: calc(50% - 350px);
+        display: flex;
+        flex-flow: column;
     }
 }

@@ -1,53 +1,89 @@
 <!DOCTYPE HTML>
 <html xmlns="https://www.thymeleaf.org">
     <head>
-        <base href="../static/">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <link rel="stylesheet" href="css/usuario.css?v=1.x">
         <link rel="stylesheet" href="css/buscarPedido.css?v=1.x">
         <link rel="stylesheet" href="css/agregarPedido.css?v=1.x">
-        <script src="js/usuario.js"></script>
+        <script src="js/usuario.js?v=1.x"></script>
     </head>
     <body>
-        <div id= "cuerpo">
-            <div id="buscar">
-                <div class="button" onclick="toggleScreen()"><div>Agregar</div></div>
-                <form action="usuario/buscar" target="b_result" method="get">
-                    <div class= "img">
-                        <img src="img/search.svg" alt="">
+        <div class="header">
+            <button id="toggleScreen" onclick="toggleScreen()">cambiar</button>
+        </div>
+        <div class="screen" id="buscar">
+            <div class="target">
+                <div id="search">
+                    <form id="formularioBusqueda">
+                        <div class= "img">
+                            <img src="img/search.svg" alt="">
+                        </div> 
+                        <div class="input">
+                            <input type="text" id="inputBusqueda" placeholder="Ingrese el código del pedido">
+                        </div>
+                        <div class="preguntar">
+                            <button form="placeHolder" onclick="getOrder()">BUSCAR</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="resultados">
+                    <div class="pedidosData">
                     </div>
-                    <div class="input">
-                        <input type="text" name="buscar" placeholder="Ingrese el código del pedido">
+                    <div class="movimientos">
+                        <table>
+                            <caption>Movimientos</caption>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Monto</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listaMovimientos">
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="preguntar">
-                        <button>BUSCAR</button>
-                    </div>
-                </form>
-
-                <iframe src="" th:filed="b_result"></iframe>
+                </div>
             </div>
-            <div id="line"></div>
-            <div id="agregar" class="show"> <!--RECUERDA ELIMINAR LA CLASE SHOW AL FINAL-->
-                <div class="button" onclick="toggleScreen()"><div>BUSCAR</div></div>
-                <form action="#" th:action="@{usuario/pedido}" th:object="${usuario}" method="post">
-                    
-                    <input type="hidden" name="id" th:field="${usuario.id}" value="12"><br>
-                    <p>Nombre</p>
-                    <input type="text" name="nombre" th:filed="${usuario.nombre}" value="GOL"><br>
-                    <p>Email</p>
-                    <input type="text" name="email" th:filed="${usuario.email}"><br>
-                    <p>Teléfono</p>
-                    <input type="text" name="telefono" th:filed="${usuario.telefono}"><br>
-                    <p>Dirección</p>
-                    <input type="text" name="direccion" th:filed="${usuario.direccion}"><br>
-                    
-                    <div id="movimientosContenedor" >
+        </div>
+        <div class="screen" id="agregar">
+            <div class="target">
+                <form id="nuevoPedido">
+                    <input type="hidden" id="usuarioId" value="0">
+                    <div class="uname">
+                        <div class="text">Nombre</div>
+                        <input type="text" id="usuarioNombre">
                     </div>
-
-                    <button type="button" onclick="agregarFila()">Agregar Pedido</button>
-                    <input type="submit" value="si"><br>
-                </form>
-                    
+                    <div class="utele"> 
+                        <div class="text">Teléfono</div>
+                        <input type="number" id="usuarioTelefono">
+                    </div>
+                    <div class="uemai">
+                        <div class="text">Email</div>
+                        <input type="text" id="usuarioEmail">
+                    </div>
+                    <div class="udire">
+                        <div class="text">Dirección de Envio</div>
+                        <input type="text" id="usuarioDireccion">
+                    </div>
+                    <div class="tablaMovimientos">
+                        <table id="movimientosLista">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Monto</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="listaNuevosMovimientos">
+                            </tbody>
+                        </table>
+                    </div>
+                    <button form="placeHolder" onclick="agregarFila()">Nuevo Producto</button>
+                    <button form="placeHolder" onclick="nuevoPedido()">Hacer Nuevo Pedido</button>
                 </form>
             </div>
         </div>

@@ -27,4 +27,14 @@ public class Movimiento{
     public void setProductoId( int nw ){ this.productoId= nw; }
     public void setCantidad( int nw ){ this.cantidad= nw; }
     public void setMonto( int nw ){ this.monto= nw; }
+
+    @Override
+    public String toString() {
+        return """
+                id: %d;
+                pedidoId: %d;
+                productoId: %d;
+                cantidad: %d;
+                monto: %d;""".formatted(this.id, this. pedidoId, this.productoId, this.cantidad, this.monto);
+    }
 }

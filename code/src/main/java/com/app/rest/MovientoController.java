@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("movimiento")
@@ -25,7 +26,7 @@ public class MovientoController {
     }
 
     @GetMapping("{id}")
-    public List<Movimiento> getById(int id) {
+    public List<Movimiento> getById(@PathVariable int id) {
         return Mv_srcv.get(id);
     }
     
