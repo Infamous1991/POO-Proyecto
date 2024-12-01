@@ -2,17 +2,27 @@
 <html xmlns="https://www.thymeleaf.org">
     <head>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="css/usuario.css?v=1.x">
         <link rel="stylesheet" href="css/buscarPedido.css?v=1.x">
         <link rel="stylesheet" href="css/agregarPedido.css?v=1.x">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <script src="js/usuario.js?v=1.x"></script>
     </head>
     <body>
-        <div class="header">
-            <button id="toggleScreen" onclick="toggleScreen()">cambiar</button>
+        <div id="header" class="start">
+            <div class="logo"><img src="favicon.ico" alt="LOGO"></div>
+            <div class="links">
+                <a href="index.html" class="link">Inicio</a>
+                <a onclick="toggleScreen()" class="link">Nosotros</a>
+                <a onclick="toggleScreen()" class="link">Contacto</a>
+                <a onclick="toggleScreen()" class="link" id="hasunnuevopedido">Haz un Nuevo Pedido</a>
+                <a onclick="toggleScreen()" class="link" id="revisatuspedidos">Revisa tus Pedidos</a>
+            </div>
         </div>
         <div class="screen" id="buscar">
             <div class="target">
+                <div id="space"></div>
                 <div id="search">
                     <form id="formularioBusqueda">
                         <div class= "img">
@@ -21,17 +31,18 @@
                         <div class="input">
                             <input type="text" id="inputBusqueda" placeholder="Ingrese el código del pedido">
                         </div>
-                        <div class="preguntar">
-                            <button form="placeHolder" onclick="getOrder()">BUSCAR</button>
+                        <div class="preguntar" id="botonDeBuscar" onclick="getOrder()">
+                            <button form="placeHolder" >BUSCAR</button>
                         </div>
                     </form>
                 </div>
                 <div id="resultados">
                     <div class="pedidosData">
+                        
                     </div>
                     <div class="movimientos">
                         <table>
-                            <caption>Movimientos</caption>
+                            <caption>Productos Solicitados</caption>
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -67,11 +78,10 @@
                         <div class="text">Dirección de Envio</div>
                         <input type="text" id="usuarioDireccion">
                     </div>
-                    <div class="tablaMovimientos">
+                    <div class="tablaMovimientos" id="meEstoyQuedandoSinIdeas">
                         <table id="movimientosLista">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Producto</th>
                                     <th>Cantidad</th>
                                     <th>Monto</th>

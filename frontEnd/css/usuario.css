@@ -2,6 +2,105 @@
 html, body{
     margin: 0;
     padding: 0;
+    height: 100%;
+}
+#header{
+    height: 7vh;
+    width: 100vw;
+    z-index: 20;
+    top: 0; 
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    transition:.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+    *{
+        user-select: none;
+        cursor: pointer;
+        transition: .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        font-family:'Poppins', sans-serif;
+        font-size: 2vh;
+    }
+
+    .logo{
+        opacity: 1;
+        top: 2%;
+        left: 10px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        cursor:auto;
+
+        & img{
+            height: 100%;
+            width: auto;
+            object-fit: fill;
+        }
+    }
+
+    .links{
+        flex: 10;
+        left: 15%;
+        bottom: 20%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: stretch;
+
+        
+        .link{
+            flex: 1;
+            text-decoration: none;
+            font-size: 120%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .5s;
+        }
+
+        .link:hover{
+            text-decoration: none;
+        }
+    }
+}
+#header.start{
+    background-color: #afb8c5;
+    .links{
+        .link{
+            color: #0e242b;
+        }
+        .link:hover{ 
+            background-color: #3b6978;
+            color: #daa520;
+        }
+        #revisatuspedidos{
+            display: none;
+        }
+        #hasunnuevopedido{
+            display: flex;
+        }
+    }
+}
+#header:not(.start){
+    background-color: #15233a;
+    .links{
+        .link{
+            color: #f1f1f1;
+        }
+        .link:hover{
+            background-color: #3b6978;
+            color: #daa520;
+            
+        }
+        #revisatuspedidos{
+            display: flex;
+        }
+        #hasunnuevopedido{
+            display: none;
+        }
+    }
 }
 
 .screen{
