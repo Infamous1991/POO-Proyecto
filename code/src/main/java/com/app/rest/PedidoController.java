@@ -1,6 +1,8 @@
 package com.app.rest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,8 +41,12 @@ public class PedidoController {
     }
 
     @GetMapping("{id}")
-    public Pedido getById(@PathVariable int id) {
-        return Pe_srcv.get(id);
+    public Map<String, Object> getById(@PathVariable int id) {
+        Pedido pedido = Pe_srcv.get(id);
+        Map<String, Object> answ= new HashMap<>();
+        answ.put("pedido", pedido);
+        answ.put("usuario", Us_srvc.get(pedido.usuarioId()));
+        return answ;
     }
 
     @PostMapping("agregar")
@@ -52,6 +58,7 @@ public class PedidoController {
             Mv_srvc.nuevaOrden(input.movimientos, pedidoId);
             return new ResponseEntity<>(pedidoId, HttpStatus.OK);
         } catch (Exception e){
+            e.printStackTrace();
             return new ResponseEntity<>(null, HttpStatus.valueOf(400));
         }
 

@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="css/agregarPedido.css?v=1.x">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <script src="js/usuario.js?v=1.x"></script>
+        <script src="js/agregarPedido.js?v=1.x"></script>
+        <script src="js/buscarPedido.js?v=1.x"></script>
     </head>
     <body>
         <div id="header" class="start">
@@ -22,7 +24,7 @@
         </div>
         <div class="screen" id="buscar">
             <div class="target">
-                <div id="space"></div>
+                <p class="title">Busca tu Pedido</p>
                 <div id="search">
                     <form id="formularioBusqueda">
                         <div class= "img">
@@ -38,7 +40,22 @@
                 </div>
                 <div id="resultados">
                     <div class="pedidosData">
-                        
+                        <div class="info">
+                            <div class="text">Nombre del Cliente</div>
+                            <div class="query" id="nombCliente"></div>
+                        </div>
+                        <div class="info">
+                            <div class="text">Estado del Pedido</div>
+                            <div class="query" id="estadoPedido"></div>
+                        </div>
+                        <div class="info">
+                            <div class="text">Fecha del Pedido</div>
+                            <div class="query" id="fi"></div>
+                        </div>
+                        <div class="info">
+                            <div class="text">Fecha de Entrega</div>
+                            <div class="query" id="ff"></div>
+                        </div>
                     </div>
                     <div class="movimientos">
                         <table>
@@ -59,42 +76,65 @@
             </div>
         </div>
         <div class="screen" id="agregar">
+            <p class="title">Has un Nuevo Pedido</p>
             <div class="target">
                 <form id="nuevoPedido">
-                    <input type="hidden" id="usuarioId" value="0">
-                    <div class="uname">
-                        <div class="text">Nombre</div>
-                        <input type="text" id="usuarioNombre">
+                    <div id="contenedorInput">
+                        <input type="hidden" id="usuarioId" value="0">
+                        <div id="filaParaI">
+                            <div id="usuarioData">
+                                <div class="uname">
+                                    <div class="text">Nombre</div>
+                                    <input type="text" id="usuarioNombre">
+                                </div>
+                                <div class="utele"> 
+                                    <div class="text">Teléfono</div>
+                                    <input type="text" id="usuarioTelefono">
+                                </div>
+                                <div class="uemai">
+                                    <div class="text">Email</div>
+                                    <input type="text" id="usuarioEmail">
+                                </div>
+                                <div class="udire">
+                                    <div class="text">Dirección de Envio</div>
+                                    <input type="text" id="usuarioDireccion">
+                                </div>
+                            </div>
+                            <div class="tablaMovimientos" id="meEstoyQuedandoSinIdeas">
+                                <table id="movimientosLista">
+                                    <thead>
+                                        <tr>
+                                            <th>Producto</th>
+                                            <th>Cantidad</th>
+                                            <th>Monto</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listaNuevosMovimientos">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="opciones">
+                            <button form="placeHolder" onclick="agregarFila()">Nuevo Producto</button>
+                            <button form="placeHolder" onclick="nuevoPedido()">Hacer Nuevo Pedido</button>
+                        </div>
                     </div>
-                    <div class="utele"> 
-                        <div class="text">Teléfono</div>
-                        <input type="number" id="usuarioTelefono">
-                    </div>
-                    <div class="uemai">
-                        <div class="text">Email</div>
-                        <input type="text" id="usuarioEmail">
-                    </div>
-                    <div class="udire">
-                        <div class="text">Dirección de Envio</div>
-                        <input type="text" id="usuarioDireccion">
-                    </div>
-                    <div class="tablaMovimientos" id="meEstoyQuedandoSinIdeas">
-                        <table id="movimientosLista">
-                            <thead>
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Monto</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody id="listaNuevosMovimientos">
-                            </tbody>
-                        </table>
-                    </div>
-                    <button form="placeHolder" onclick="agregarFila()">Nuevo Producto</button>
-                    <button form="placeHolder" onclick="nuevoPedido()">Hacer Nuevo Pedido</button>
                 </form>
+            </div>
+        </div>
+        <div id="popUp">
+            <div class="popup exito">
+                <div class="img"><img src="img/ok.svg" alt=""></div>
+                <div class="mainText">SU ORDEN FUE RECIBIDA CON EXITO<br>SU ID DE PEDIDO ES:</div>
+                <div class="message"></div>
+                <div class="ok" onclick="location.reload(true)">OK</div>
+            </div>
+            <div class="popup error">
+                <div class="img"><img src="img/error.svg" alt=""></div>
+                <div class="mainText">OCURRIO UN ERROR</div>
+                <div class="message"></div>
+                <div class="ok" onclick="hidePopUp()">OK</div>
             </div>
         </div>
     </body>
