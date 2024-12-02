@@ -8,7 +8,7 @@ html, body{
     padding: 0;
     background-image: url(../img/dms.jpg);
     background-position: bottom center;
-    background-size: auto cover;
+    background-size: cover;
 }
 
 #main{

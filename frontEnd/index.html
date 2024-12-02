@@ -3,6 +3,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="css/index.css?v=1.x">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="js/index.js?v=1.x"></script>
         <title>Inicio</title>
     </head>
@@ -20,7 +21,7 @@
                     <button id="toUser" onclick="location.href='/usuario.html'">INGRESAR</button>
                 </div>
             </div>
-            <div id="empleado" class="showLogin">
+            <div id="empleado" class="">
                 <div class="acceso" onclick="setInit(false)">
                     <img src="img/tools.svg" alt="">
                 </div>
@@ -35,10 +36,10 @@
                 <div class="login">
                     <form action="" method="get">
                         <p id="userName">Usuario</p>
-                        <input type="text" name="userName">
+                        <input id="usnm" type="text" name="userName">
                         <p id="pswName">Contraseña</p> 
-                        <input type="password" name="password">
-                        <input type="button" value="Ingresar" onclick="location.href='/empleado.html'">
+                        <input id="pssw" type="password" name="password">
+                        <input type="button" value="Ingresar" onclick="login()">
                     </form>
                 </div>
             </div>
