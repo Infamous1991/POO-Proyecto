@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/empleado.js"></script>
+  <link rel="stylesheet" href="css/empleado.css">
+  <title>Panel de Control</title>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Menú</h2>
+    <a onclick="loadTable('usuario')">Usuarios</a>
+    <a onclick="loadTable('producto')">Productos</a>
+    <a onclick="loadTable('pedido')">Pedidos</a>
+    <a onclick="loadTable('movimiento')">Movimientos</a>
+    <a onclick="loadTable('proveedor')">Proveedores</a>
+  </div>
+  <div class="main-content">
+    <h1>Bienvenido</h1>
+    <div id="table-container" class="table-placeholder">Seleccione una opción del menú</div>
+  </div>
+</body>
+</html>

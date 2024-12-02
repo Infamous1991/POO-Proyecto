@@ -184,7 +184,7 @@ html, body{
                 input[name="password"]{
                     top: 70%;
                 }
-                input[type="submit"]{
+                input[type="button"]{
                     width: 30%;
                     right: 10%;
                     top: 85%;
@@ -193,7 +193,20 @@ html, body{
                     border: 0;
                     color: #333a4d;
                     font-weight: bold;
-
+                    cursor: pointer;
+                }
+                #ingresarDeMomentoSinCredenciales{
+                    width: 30%;
+                    right: 10%;
+                    top: 85%;
+                    height: 2.5em;
+                    border-radius: 10px;
+                    border: 0;
+                    color: #333a4d;
+                    font-weight: bold;
+                    background-color: #f1f1f1;
+                    text-align: center;
+                    cursor: pointer;
                 }
 
             }

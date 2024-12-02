@@ -1,4 +1,26 @@
 
+.ui-autocomplete {
+background-color: #f9f9f9;
+border: 1px solid #ccc;   
+border-radius: 4px;
+max-height: 150px;
+overflow-y: auto;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.ui-menu-item {
+padding: 8px 12px;
+cursor: pointer;
+}
+.ui-state-active {
+background-color: #007bff;
+color: white;
+}
+.ui-menu-item-wrapper {
+font-family: Arial, sans-serif;
+font-size: 14px;
+text-align: left;
+}
+
 .screen#agregar{
 
     transition: clip-path .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);

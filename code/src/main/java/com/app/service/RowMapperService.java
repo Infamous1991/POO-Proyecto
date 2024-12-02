@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.app.dto.Movimiento;
 import com.app.dto.Pedido;
 import com.app.dto.Producto;
+import com.app.dto.Proveedor;
 import com.app.dto.Usuario;
 
 @Service
@@ -69,6 +70,20 @@ public class RowMapperService {
                     rs.getInt("StockDisponible"),
                     rs.getInt("StockMinimo"),
                     rs.getInt("StockMaximo")
+                );
+            }
+        };
+    }
+    public static RowMapper<Proveedor> rmProveedor(){
+        return new RowMapper<Proveedor>() {
+            @Override
+            public Proveedor mapRow(ResultSet rs, int rowNum) throws SQLException {
+                return new Proveedor(
+                    rs.getInt("ID"),
+                    rs.getString("Nombre"),
+                    rs.getString("Contacto"),
+                    rs.getString("Email"),
+                    rs.getString("Telefono")
                 );
             }
         };
