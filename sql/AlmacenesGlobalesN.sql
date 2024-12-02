@@ -5,7 +5,7 @@ CREATE DATABASE [AlmacenesGlobales]
 USE AlmacenesGlobales
 GO
 
-CREATE TABLE [dbo].[Categorias](
+CREATE TABLE [Categorias](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [varchar](100) NULL,
 PRIMARY KEY CLUSTERED 
@@ -14,8 +14,8 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Empleados]    Script Date: 11/24/2024 11:26:35 PM ******/
-CREATE TABLE [dbo].[Empleados](
+/****** Object:  Table [Empleados]    Script Date: 11/24/2024 11:26:35 PM ******/
+CREATE TABLE [Empleados](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [varchar](100) NULL,
 	[ClaveAcceso] [varchar](100) NULL,
@@ -28,8 +28,8 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Movimientos]    Script Date: 11/24/2024 11:26:35 PM ******/
-CREATE TABLE [dbo].[Movimientos](
+/****** Object:  Table [Movimientos]    Script Date: 11/24/2024 11:26:35 PM ******/
+CREATE TABLE [Movimientos](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[PedidoId] [int] NULL,
 	[ProductoId] [int] NULL,
@@ -41,8 +41,8 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Pedidos]    Script Date: 11/24/2024 11:26:35 PM ******/
-CREATE TABLE [dbo].[Pedidos](
+/****** Object:  Table [Pedidos]    Script Date: 11/24/2024 11:26:35 PM ******/
+CREATE TABLE [Pedidos](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[UsuarioId] [int] NULL,
 	[Estado] [varchar](20) NULL,
@@ -54,8 +54,8 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Productos]    Script Date: 11/24/2024 11:26:35 PM ******/
-CREATE TABLE [dbo].[Productos](
+/****** Object:  Table [Productos]    Script Date: 11/24/2024 11:26:35 PM ******/
+CREATE TABLE [Productos](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Codigo] [varchar](50) NULL,
 	[Descripcion] [text] NULL,
@@ -71,8 +71,8 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Proveedores]    Script Date: 11/24/2024 11:26:35 PM ******/
-CREATE TABLE [dbo].[Proveedores](
+/****** Object:  Table [Proveedores]    Script Date: 11/24/2024 11:26:35 PM ******/
+CREATE TABLE [Proveedores](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [varchar](100) NULL,
 	[Contacto] [varchar](100) NULL,
@@ -84,8 +84,8 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuarios]    Script Date: 11/24/2024 11:26:35 PM ******/
-CREATE TABLE [dbo].[Usuarios](
+/****** Object:  Table [Usuarios]    Script Date: 11/24/2024 11:26:35 PM ******/
+CREATE TABLE [Usuarios](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [varchar](100) NULL,
 	[Email] [varchar](100) NULL,
@@ -97,20 +97,20 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Movimientos]  WITH CHECK ADD FOREIGN KEY([PedidoId])
-REFERENCES [dbo].[Pedidos] ([ID])
+ALTER TABLE [Movimientos]  WITH CHECK ADD FOREIGN KEY([PedidoId])
+REFERENCES [Pedidos] ([ID])
 GO
-ALTER TABLE [dbo].[Movimientos]  WITH CHECK ADD FOREIGN KEY([ProductoId])
-REFERENCES [dbo].[Productos] ([ID])
+ALTER TABLE [Movimientos]  WITH CHECK ADD FOREIGN KEY([ProductoId])
+REFERENCES [Productos] ([ID])
 GO
-ALTER TABLE [dbo].[Pedidos]  WITH CHECK ADD FOREIGN KEY([UsuarioId])
-REFERENCES [dbo].[Usuarios] ([ID])
+ALTER TABLE [Pedidos]  WITH CHECK ADD FOREIGN KEY([UsuarioId])
+REFERENCES [Usuarios] ([ID])
 GO
-ALTER TABLE [dbo].[Productos]  WITH CHECK ADD FOREIGN KEY([CategoriaId])
-REFERENCES [dbo].[Categorias] ([ID])
+ALTER TABLE [Productos]  WITH CHECK ADD FOREIGN KEY([CategoriaId])
+REFERENCES [Categorias] ([ID])
 GO
-ALTER TABLE [dbo].[Productos]  WITH CHECK ADD FOREIGN KEY([ProveedorId])
-REFERENCES [dbo].[Proveedores] ([ID])
+ALTER TABLE [Productos]  WITH CHECK ADD FOREIGN KEY([ProveedorId])
+REFERENCES [Proveedores] ([ID])
 GO
 USE [master]
 GO
